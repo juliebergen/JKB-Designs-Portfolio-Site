@@ -1,23 +1,16 @@
-*, *:after, *:before {
-  box-sizing: border-box;
-}
-html {
-  -webkit-font-smoothing: antialiased;    
-}
-html body {
-  overflow:hidden;
-  overflow-y: auto !important;
-  margin:0;
-  font-family: 'Open Sans', sans-serif;
-  color: #4f4f4f;                     
-}
-body {
-  overflow: hidden;
-}
+// style.scss
+// ====================
 
+//Compass imports
+@import "compass";
+@import "compass/css3/box-shadow";
+@import "compass/css3/transition";
 
-/* Light Green on grey:#6ebb6b; */
-
+//Core partials
+@import "variables";
+@import "mixins";
+@import "base";
+@import "grid";
 
 #preloader {
     position: fixed;
@@ -25,7 +18,7 @@ body {
     left:0;
     right:0;
     bottom:0;
-    background-color:#F2F2F2; /* change if the mask should have another color then white */
+    background-color: $alternateSectionColor; /* change if the mask should have another color then white */
     z-index:99; /* makes sure it stays on top */
 }
 
@@ -40,10 +33,6 @@ body {
     background-position:center;
     margin:-100px 0 0 -100px; /* is width and height divided by two */
 }
-a {
-  text-decoration: none;
-  color: #BD0136;
-}
 
 .backstretch {
   background: url("../img/background1.jpg");
@@ -56,7 +45,7 @@ nav {
   left: 0;
   z-index: 300;
   width: 100%;
-  background-color: #BD0136;
+  background-color: $mainColor;
   height: 65px;
   line-height: 65px;
   margin-top: -65px;
@@ -64,11 +53,10 @@ nav {
   box-shadow: 0 0 4px rgba(0, 0, 0, .2);
   color: #fff;
   opacity: 0.97;
-  -webkit-transition: all 0.5s ease 0s;
-  -moz-transition: all 0.5s ease 0s;
-  -ms-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
+  @include transition-property(all);
+  @include transition-duration(0.5s);
+  @include transition-timing-function(ease);
+  @include transition-delay(0s);
 }
 nav span {
   padding-right: 15px;
@@ -85,11 +73,10 @@ nav span {
 
 #item_1:hover, #item_2:hover, #item_3:hover, #item_4:hover {
   color: #32323c !important;
-  -webkit-transition: all 0.5s ease 0s;
-  -moz-transition: all 0.5s ease 0s;
-  -ms-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
+  @include transition-property(all);
+  @include transition-duration(0.5s);
+  @include transition-timing-function(ease);
+  @include transition-delay(0s);
   cursor: pointer;
 }
 #home-screen {
@@ -115,8 +102,8 @@ nav span {
   opacity: 0.7;
 }
 #header-headlines {
-  font-family: 'Roboto Slab', serif;
-  color: #f2f2f2;
+  font-family: #navFont;
+  color: $alternateSectionColor;
   text-align: center;
   z-index: 3;
   font-size: 5em;
@@ -151,12 +138,12 @@ nav span {
   margin: 0;
 } 
 #main {
-  background: none repeat scroll 0 0 #f2f2f2;
+  background: none repeat scroll 0 0 $alternateSectionColor;
   position: relative;
   width: 100%;
 }
 #content {
-  background-color: #f2f2f2;
+  background-color: $alternateSectionColor;
   padding: 200px 0px 0px 0px;
   position: relative;
   overflow: hidden;
@@ -166,11 +153,10 @@ nav span {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: 56% 240px;
-  -webkit-transition: all 0.8s ease 0s;
-  -moz-transition: all 0.8s ease 0s;
-  -ms-transition: all 0.8s ease 0s;
-  -o-transition: all 0.8s ease 0s;
-  transition: all 0.8s ease 0s;
+  @include transition-property(all);
+  @include transition-duration(0.8s);
+  @include transition-timing-function(ease);
+  @include transition-delay(0s);
 }
 #content img {
   border-radius: 90%;
@@ -179,7 +165,7 @@ nav span {
   margin-top: 25px;
 }
 .headlines {
-  font-family: 'Roboto Slab', serif;
+  font-family: #navFont;
   font-weight: 700;
 }
 #headlines-about {
@@ -194,7 +180,7 @@ nav span {
 }
 #headlines-resume {
   font-size: 4em;
-  color: #f2f2f2;
+  color: $alternateSectionColor;
   text-align: center;
   margin-top: -15px;
   padding-right: 25px;
@@ -214,7 +200,7 @@ nav span {
 #headlines-contact {
   font-size: 4em;
   line-height: 0px;
-  color: #f2f2f2;
+  color: $alternateSectionColor;
   text-align: right;
   margin-top: 25px;
   padding-right: 25px;
@@ -225,24 +211,19 @@ nav span {
   width: 480px;
   float: left;
   padding-left: 25px;
-  border-left: 5px solid #BD0136;
+  border-left: 5px solid $mainColor;
   font-size: .8em;
 }
 .skills-line {
-  background-color: #BD0136;
+  background-color: $mainColor;
   margin-top: 35px;
   margin-left: -25px;
-  color: #f2f2f2;
+  color: $alternateSectionColor;
   line-height: 30px;
-  /* background-image: linear-gradient(-30deg, #9BFFFC, #4cd2da);
-  background-image: -moz-linear-gradient(-30deg, #4cd2da, #9BFFFC);
-  background-image: -o-linear-gradient(-30deg, #9BFFFC, #4cd2da);
-  background-image: -webkit-linear-gradient(-30deg, #4cd2da, #9BFFFC); */
-  -webkit-transition: all 0.7s ease 0s;
-  -moz-transition: all 0.7s ease 0s;
-  -ms-transition: all 0.7s ease 0s;
-  -o-transition: all 0.7s ease 0s;
-  transition: all 0.7s ease 0s;
+  @include transition-property(all);
+  @include transition-duration(0.7s);
+  @include transition-timing-function(ease);
+  @include transition-delay(0s);
   white-space: nowrap;
 }
 .skills-line span {
@@ -269,11 +250,10 @@ nav span {
   overflow: hidden;
   background-repeat: no-repeat;
   background-position: 56% 240px;
-  -webkit-transition: all 0.8s ease 0s;
-  -moz-transition: all 0.8s ease 0s;
-  -ms-transition: all 0.8s ease 0s;
-  -o-transition: all 0.8s ease 0s;
-  transition: all 0.8s ease 0s;
+  @include transition-property(all);
+  @include transition-duration(0.8s);
+  @include transition-timing-function(ease);
+  @include transition-delay(0s);
 }
 #about, #resume, #work, #contact {
   width: 850px;
@@ -283,16 +263,16 @@ nav span {
   width: 480px;
   float: left;
   padding-left: 25px;
-  border-left: 5px solid #BD0136;
+  border-left: 5px solid $mainColor;
   font-size: .8em;
-  color: #f2f2f2;
+  color: $alternateSectionColor;
 }
 .selection-resume {
   margin-top: -2px;
   padding-bottom: 20px;
 }
 .icons {
-  background-color: #BD0136;
+  background-color: $mainColor;
   width: 30px;
   height: 30px;
   border-radius: 90%;
@@ -310,18 +290,18 @@ nav span {
   font-size: 1.5em;
   margin-top: 6px !important;
   margin-left: 5px;
-  color: #BD0136;
+  color: $mainColor;
 }
 .year {
   font-size: 1.2em;
   margin-left: -140px;
   margin-top: -10px;
   position: absolute;
-  color: #f2f2f2;
+  color: $alternateSectionColor;
   font-weight: 700;
 }
 .company {
-  color: #BD0136;
+  color: $mainColor;
   font-size: 1.2em;
   font-weight: 700;
   line-height: 0;
@@ -339,7 +319,7 @@ nav span {
 }
 #content2 {
   background-image: url(../img/camera.png );
-  background-color: #f2f2f2;
+  background-color: $alternateSectionColor;
   background-attachment: fixed;
   border: none;
   background-position: center center;
@@ -348,17 +328,16 @@ nav span {
   overflow: hidden;
   background-repeat: no-repeat;
   background-position: 56% 240px;
-  -webkit-transition: all 0.8s ease 0s;
-  -moz-transition: all 0.8s ease 0s;
-  -ms-transition: all 0.8s ease 0s;
-  -o-transition: all 0.8s ease 0s;
-  transition: all 0.8s ease 0s;
+  @include transition-property(all);
+  @include transition-duration(0.8s);
+  @include transition-timing-function(ease);
+  @include transition-delay(0s);
 }
 #gallery {
   width: 495px;
   float: left;
   padding-left: 15px;
-  border-left: 5px solid #BD0136;
+  border-left: 5px solid $mainColor;
   font-size: .8em;
   min-height: 290px;
 }
@@ -371,18 +350,17 @@ nav span {
 }
 .filter {
   cursor: pointer;
-  color: #4f4f4f;
+  color: $background;
 }
 .filter:hover {
     color: #4cd2da;
-    -webkit-transition: all 0.5s ease 0s;
-    -moz-transition: all 0.5s ease 0s;
-    -ms-transition: all 0.5s ease 0s;
-    -o-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s;
+	@include transition-property(all);
+	@include transition-duration(0.5s);
+	@include transition-timing-function(ease);
+	@include transition-delay(0s);
 }
 .filter.active {
-    color: #BD0136;
+    color: $mainColor;
     font-weight: 700;
 }
 
@@ -440,15 +418,14 @@ span.roll {
   overflow: hidden;
   background-repeat: no-repeat;
   background-position: 56% 240px;
-  -webkit-transition: all 0.8s ease 0s;
-  -moz-transition: all 0.8s ease 0s;
-  -ms-transition: all 0.8s ease 0s;
-  -o-transition: all 0.8s ease 0s;
-  transition: all 0.8s ease 0s;
+  @include transition-property(all);
+  @include transition-duration(0.8s);
+  @include transition-timing-function(ease);
+  @include transition-delay(0s);
 }
 .input, textarea {
-  background-color: #f2f2f2;
-  border-bottom: 3px solid #BD0136;
+  background-color: $alternateSectionColor;
+  border-bottom: 3px solid $mainColor;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
@@ -459,13 +436,13 @@ span.roll {
 }
 .input {
   font-size: 1.2em;
-  color: #4f4f4f;
+  color: $background;
 }
 textarea {
   height: 150px;
   resize: none;
   font-size: 1.2em;
-  color: #4f4f4f;
+  color: $background;
   font-family: 'Open Sans', sans-serif;
 }
 body {
@@ -478,20 +455,19 @@ input, textarea {
 #submit {
   padding: 15px;
   border: 0px;
-  background-color: #BD0136;
-  color: #f2f2f2;
+  background-color: $mainColor;
+  color: $alternateSectionColor;
   font-weight: 700;
   font-size: 1.1em;
   outline: none;
 }
 #submit:hover {
-  background-color: #f2f2f2;
-  color: #BD0136;
-  -webkit-transition: all 0.5s ease 0s;
-  -moz-transition: all 0.5s ease 0s;
-  -ms-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
+  background-color: $alternateSectionColor;
+  color: $mainColor;
+  @include transition-property(all);
+  @include transition-duration(0.5s);
+  @include transition-timing-function(ease);
+  @include transition-delay(0s);
   cursor: pointer;
 }
 #p-submit {
@@ -520,7 +496,7 @@ input, textarea {
 }
 .email-erorr, .name-erorr, .message-erorr {
   position: relative;
-  color: #BD0136;
+  color: $mainColor;
   line-height: 16px;
 }
 .email-erorr {
@@ -553,7 +529,7 @@ input, textarea {
   margin: -343px 0 0 40px;
 }
 footer {
-  background-color: #BD0136;
+  background-color: $mainColor;
   padding: 30px 0px 30px 0px;
   color: #FFFFFF;
   position: relative;
@@ -572,12 +548,11 @@ footer {
   font-size: 1.3em;
 }
 #download a:hover {
-  color: #BD0136;
-  -webkit-transition: all 0.5s ease 0s;
-  -moz-transition: all 0.5s ease 0s;
-  -ms-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
+  color: $mainColor;
+  @include transition-property(all);
+  @include transition-duration(0.5s);
+  @include transition-timing-function(ease);
+  @include transition-delay(0s);
   cursor: pointer;
 }
 #socila-complet {
@@ -590,15 +565,14 @@ footer {
 }
 #socila-complet i {
   padding-right: 15px;
-  color: #f2f2f2;
+  color: $alternateSectionColor;
 }
 #socila-complet i:hover {
   color: #32323c;
-  -webkit-transition: all 0.5s ease 0s;
-  -moz-transition: all 0.5s ease 0s;
-  -ms-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
+  @include transition-property(all);
+  @include transition-duration(0.5s);
+  @include transition-timing-function(ease);
+  @include transition-delay(0s);
   cursor: pointer;
 }
 .copyright {
@@ -617,9 +591,7 @@ footer {
 	text-decoration: none;
 	color: #bbb;
 	/* background color transition */
-	-webkit-transition: 0.5s;
-	-moz-transition: 0.5s;
-	transition: 0.5s;
+  	@include transition-duration(0.5s);
 }
 /* arrow icon (span tag) */
 #back-top span {
@@ -633,12 +605,10 @@ footer {
 	-moz-border-radius: 10px;
 	border-radius: 2px;
 	/* background color transition */
-	-webkit-transition: 0.5s;
-	-moz-transition: 0.5s;
-	transition: 0.5s;
-  font-size: 2.4em;
-  color: #FFF;
-  opacity: 0.7;
+	@include transition-duration(0.5s);
+	font-size: 2.4em;
+	color: #FFF;
+	opacity: 0.7;
 }
 #back-top i {
   margin-top: 4px;
@@ -688,7 +658,7 @@ margin-top: 14px;
   text-align: center;
   position: relative;
   z-index: 1;
-  color: #f2f2f2;
+  color: $alternateSectionColor;
   font-family: FontAwesome;
   font-size: 3em;
 }
@@ -720,16 +690,20 @@ margin-top: 14px;
 /* Effect 1 */
 .hi-icon-effect-1 .hi-icon {
   background: rgba(66, 60, 60, 0.1);
-  -webkit-transition: background 0.2s, color 0.2s;
-  -moz-transition: background 0.2s, color 0.2s;
-  transition: background 0.2s, color 0.2s;
+  @include transition-property(background);
+  @include transition-duration(0.2s);
+  @include transition-delay(0.2s);
 }
 
 .hi-icon-effect-1 .hi-icon:after {
   top: -7px;
   left: -7px;
   padding: 7px;
-  box-shadow: 0 0 0 4px #f2f2f2;
+  box-shadow: 0 0 0 4px $alternateSectionColor;
+/*  @include transition-property(all);
+  @include transition-duration(0.5s);
+  @include transition-timing-function(ease);
+  @include transition-delay(0s);*/
   -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
   -webkit-transform: scale(.8);
   -moz-transition: -moz-transform 0.2s, opacity 0.2s;
@@ -742,7 +716,7 @@ margin-top: 14px;
 
 /* Effect 1a */
 .no-touch .hi-icon-effect-1a .hi-icon:hover {
-  color: #BD0136;
+  color: $mainColor;
 }
 
 .no-touch .hi-icon-effect-1a .hi-icon:hover:after {
@@ -916,8 +890,8 @@ animation-duration:2s;
   #submit {
     padding: 15px !important;
     border: 0px !important;
-    background-color: #BD0136;
-    color: #f2f2f2;
+    background-color: $mainColor;
+    color: $alternateSectionColor;
     font-weight: 700 !important;
     font-size: 1.1em !important;
     outline: none !important;
@@ -1037,20 +1011,10 @@ animation-duration:2s;
 	border-radius: 50%;
 	opacity: 0;
 	
-	-webkit-transition: all 0.4s ease-in-out;
-	-moz-transition: all 0.4s ease-in-out;
-	-o-transition: all 0.4s ease-in-out;
-	-ms-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out;
-	
-	-webkit-transform: scale(0);
-	-moz-transform: scale(0);
-	-o-transform: scale(0);
-	-ms-transform: scale(0);
-	transform: scale(0);
+	@include transition;
+	@include transform;
 	
 	-webkit-backface-visibility: hidden;
-
 }
 
 .ch-info h3 {
@@ -1115,31 +1079,4 @@ animation-duration:2s;
 
 .ch-item:hover .ch-info p {
 	opacity: 1;
-}
-
-/* Grid */
-.ch-grid {
-	margin: 20px 0 0 0;
-	padding: 0;
-	list-style: none;
-	display: block;
-	text-align: center;
-	width: 100%;
-}
-
-.ch-grid:after,
-.ch-item:before {
-	content: '';
-    display: table;
-}
-
-.ch-grid:after {
-	clear: both;
-}
-
-.ch-grid li {
-	width: 205px;
-	height: 205px;
-	display: inline-block;
-	margin: 10px;
 }

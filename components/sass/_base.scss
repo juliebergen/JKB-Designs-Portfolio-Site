@@ -1,0 +1,23 @@
+// _base.scss
+// ===================
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+html {
+  -webkit-font-smoothing: antialiased;    
+}
+html body {
+  overflow:hidden;
+  overflow-y: auto !important;
+  margin:0;
+  font-family: #mainFont;
+  color: $background;                     
+}
+body {
+  overflow: hidden;
+}
+a {
+  text-decoration: none;
+  color: $mainColor;
+}
