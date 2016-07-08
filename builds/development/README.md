@@ -1,7 +1,3 @@
-// README.md
-// ======================
-
-
 Julie Bergen's Portfolio Site
 ==============
 
